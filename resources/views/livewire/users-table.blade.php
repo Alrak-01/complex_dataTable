@@ -4,6 +4,7 @@
             <!-- Start coding here -->
             <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
                 <div class="flex items-center justify-between d p-4">
+                {{-- SEARCH SECTION STARTS --}}
                     <div class="flex">
                         <div class="relative w-full">
                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -19,14 +20,15 @@
                                 placeholder="Search" required="">
                         </div>
                     </div>
+                {{-- SEARCH SECTION ENDS --}}
                     <div class="flex space-x-3">
                         <div class="flex space-x-3 items-center">
                             <label class="w-40 text-sm font-medium text-gray-900">User Type :</label>
-                            <select 
+                            <select wire:model.live="admin"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                                 <option value="">All</option>
-                                <option value="0">User</option>
-                                <option value="1">Admin</option>
+                                <option value="user">User</option>
+                                <option value="admin">Admin</option>
                             </select>
                         </div>
                     </div>
