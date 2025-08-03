@@ -37,10 +37,22 @@
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                             <tr>
-                                <th scope="col" class="px-4 py-3">name</th>
-                                <th scope="col" class="px-4 py-3">email</th>
-                                <th scope="col" class="px-4 py-3">Role</th>
-                                <th scope="col" class="px-4 py-3">Joined</th>
+                               @include('includes.table_th', [ 
+                                "name" => "name",
+                                "displayName" => "name"])
+
+                                 @include('includes.table_th', [ 
+                                "name" => "email",
+                                "displayName" => "email"])
+
+                                 @include('includes.table_th', [ 
+                                "name" => "role",
+                                "displayName" => "role"])
+
+                                 @include('includes.table_th', [ 
+                                "name" => "created_at",
+                                "displayName" => "Joined"])
+
                                 <th scope="col" class="px-4 py-3">Last update</th>
                                 <th scope="col" class="px-4 py-3">
                                     <span class="sr-only">Actions</span>

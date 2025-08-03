@@ -14,11 +14,22 @@ class UsersTable extends Component
     #[Url(as : 'q', history: true)]
     public $search = "";
 
-    #[Url(history: true)]
+    #[Url(as : 'a', history: true)]
     public $admin = "";
 
-    #[Url()]
+    #[Url(as : 'so', history: true)]
+    public $sortedOrder = "DESC";
+
+    #[Url(as : 'sb', history: true)]
+    public $sortedBy = "created_at";
+
+     #[Url()]
     public $perPage = 5;
+
+    public function sort($title){
+        $this->sortedOrder == "DESC" ? $this->sortedOrder = "ASC" : $this->sortedOrder = "DESC";
+        $this->sortedBy  = $title;
+    }
 
 
     public function updatingSearch()
@@ -32,7 +43,8 @@ class UsersTable extends Component
 
     public function render()
     {
-        $users = User::search($this->search)
+        $users = User::orderBy($this->sortedBy, $this->sortedOrder)
+        ->search($this->search)
         ->when($this->admin !== "", function($query){
             $query->where("role", $this->admin);
         })
